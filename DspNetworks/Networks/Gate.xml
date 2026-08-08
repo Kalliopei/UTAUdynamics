@@ -91,7 +91,7 @@
     </Nodes>
     <Parameters>
       <Parameter ID="Floor" MinValue="-60.0" MaxValue="6.0" ModColour="0" ExternalModulation="Disabled"
-                 DefaultValue="" Value="-30.69999885559082" TextToValueConverter="">
+                 DefaultValue="" Value="-20.89999961853027" TextToValueConverter="">
         <Connections>
           <Connection NodeId="pma_unscaled" ParameterId="Value"/>
           <Connection NodeId="pma_unscaled1" ParameterId="Value"/>
@@ -99,14 +99,14 @@
         </Connections>
       </Parameter>
       <Parameter ID="Slack" MinValue="0.0" MaxValue="-20.0" ModColour="0" ExternalModulation="Disabled"
-                 Value="-14.30000019073486" TextToValueConverter="" SkewFactor="1"
+                 Value="-6.399999618530273" TextToValueConverter="" SkewFactor="1"
                  DefaultValue="-20.0">
         <Connections>
           <Connection NodeId="pma_unscaled1" ParameterId="Add"/>
         </Connections>
       </Parameter>
       <Parameter ID="Speed" MinValue="0.0" MaxValue="1.0" StepSize="0" SkewFactor="1"
-                 ModColour="0" ExternalModulation="Disabled" DefaultValue="" Value="0.7699999809265137">
+                 ModColour="0" ExternalModulation="Disabled" DefaultValue="" Value="0.8899999856948853">
         <Connections>
           <Connection NodeId="gate" ParameterId="Release"/>
           <Connection NodeId="gate1" ParameterId="Release"/>

@@ -170,20 +170,20 @@
                   </Parameter>
                   <Parameter ID="Ratio" MinValue="1.000000014901161" MaxValue="2.0" StepSize="0.01"
                              ModColour="0" ExternalModulation="Disabled" DefaultValue="1.000000014901161"
-                             Value="1.260000014901161">
+                             Value="1.100000014901161">
                     <Connections>
                       <Connection NodeId="comp1" ParameterId="Ratio"/>
                     </Connections>
                   </Parameter>
                   <Parameter ID="Tight" MinValue="-1.0" MaxValue="1.0" ModColour="0" ExternalModulation="Disabled"
-                             DefaultValue="" Value="-0.3799999952316284">
+                             DefaultValue="" Value="0.0">
                     <Connections>
                       <Connection NodeId="comp" ParameterId="Attack"/>
                       <Connection NodeId="comp" ParameterId="Release"/>
                     </Connections>
                   </Parameter>
                   <Parameter ID="Boost" MinValue="0.0" MaxValue="24.0" ModColour="0" ExternalModulation="Disabled"
-                             DefaultValue="" Value="20.20000076293945">
+                             DefaultValue="" Value="6.0">
                     <Connections>
                       <Connection NodeId="gain1" ParameterId="Gain"/>
                     </Connections>
