@@ -2,7 +2,7 @@
 
 <ContentProperties DeviceType="Desktop">
   <Component type="ScriptImage" id="imgBackground" x="0" y="0" width="335"
-             height="550" fileName="{PROJECT_FOLDER}bg_notext_335x550.png"/>
+             height="550" fileName="{PROJECT_FOLDER}Background_335x550.png"/>
   <Component type="ScriptFloatingTile" id="fttPrePeak" x="122" y="116" width="15"
              height="210" ContentType="MatrixPeakMeter" bgColour="16711680"
              itemColour="4293197951" itemColour2="0" Data="{&#10;  &quot;ProcessorId&quot;: &quot;Peak&quot;,&#10;  &quot;Index&quot;: -1,&#10;  &quot;FollowWorkspace&quot;: false,&#10;  &quot;SegmentLedSize&quot;: 0.0,&#10;  &quot;UpDecayTime&quot;: 0.0,&#10;  &quot;DownDecayTime&quot;: 0.0,&#10;  &quot;UseSourceChannels&quot;: true,&#10;  &quot;SkewFactor&quot;: 0.31,&#10;  &quot;PaddingSize&quot;: 3.0,&#10;  &quot;ShowMaxPeak&quot;: 1.0,&#10;  &quot;ChannelIndexes&quot;: [&#10;    1&#10;  ]&#10;}"
