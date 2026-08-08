@@ -16,42 +16,48 @@
              numStrips="100.0" width="44" height="44" defaultValue="-60.0"
              tooltip="Level the signal must cross to open the gate." isPluginParameter="1"
              pluginParameterName="Floor" bgColour="0" itemColour="0" itemColour2="0"
-             textColour="0" isMetaParameter="1"/>
+             textColour="0" isMetaParameter="1" dragDirection="Vertical"/>
   <Component type="ScriptSlider" id="knbSlack" x="57" y="194" max="0.0" stepSize="0.1000000014901161"
              filmstripImage="{PROJECT_FOLDER}SmallKnob_44x44_100.png" numStrips="100.0"
              width="44" height="44" min="-20.0" defaultValue="-9.0" tooltip="Gap below Floor before the gate closes again &#8212; prevents chatter near threshold."
              isPluginParameter="1" pluginParameterName="Slack" bgColour="0"
-             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"/>
+             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"
+             dragDirection="Vertical"/>
   <Component type="ScriptSlider" id="knbSpeed" x="57" y="264" filmstripImage="{PROJECT_FOLDER}SmallKnob_44x44_100.png"
              numStrips="100.0" width="44" height="44" defaultValue="0.800000011920929"
              tooltip="How quickly the gate closes." isPluginParameter="1"
              pluginParameterName="Speed" bgColour="0" itemColour="0" textColour="0"
-             itemColour2="0" isMetaParameter="1"/>
+             itemColour2="0" isMetaParameter="1" dragDirection="Vertical"/>
   <Component type="ScriptSlider" id="knbLowCut" x="77" y="369" min="20.0"
              max="500.0" stepSize="1.0" filmstripImage="{PROJECT_FOLDER}PurpleKnob_64x64_100.png"
              numStrips="100.0" width="64" height="64" defaultValue="100.0"
              tooltip="Cuts low-end rumble after the gate, before compression."
              pluginParameterName="Low Cut" isPluginParameter="1" bgColour="0"
-             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"/>
+             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"
+             dragDirection="Vertical"/>
   <Component type="ScriptSlider" id="knbAmount" x="226" y="107" filmstripImage="{PROJECT_FOLDER}PinkKnob_64x64_100.png"
              numStrips="100.0" width="64" height="64" defaultValue="1.0" tooltip="Overall intensity of compression &#8212; evens out the gap between quiet and loud parts."
              isPluginParameter="1" pluginParameterName="Amount" bgColour="0"
-             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"/>
+             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"
+             dragDirection="Vertical"/>
   <Component type="ScriptSlider" id="knbRatio" x="226" y="198" min="1.0" max="2.0"
              filmstripImage="{PROJECT_FOLDER}PurpleKnob_64x64_100.png" numStrips="100.0"
              width="64" height="64" defaultValue="1.100000023841858" tooltip="Amount of gain reduction applied once the compressor threshold is crossed."
              isPluginParameter="1" pluginParameterName="Ratio" bgColour="0"
-             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"/>
+             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"
+             dragDirection="Vertical"/>
   <Component type="ScriptSlider" id="knbTight" x="226" y="283" min="-1.0"
              filmstripImage="{PROJECT_FOLDER}PurpleKnob_64x64_100.png" numStrips="100.0"
              width="64" height="64" tooltip="How quickly the compressor reacts. Pushed to the extreme, this stops just controlling level and starts adding harmonic distortion."
              isPluginParameter="1" pluginParameterName="Tight" bgColour="0"
-             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"/>
+             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"
+             dragDirection="Vertical"/>
   <Component type="ScriptSlider" id="knbBoost" x="226" y="370" max="24.0"
              stepSize="0.1000000014901161" filmstripImage="{PROJECT_FOLDER}PurpleKnob_64x64_100.png"
              numStrips="100.0" width="64" height="64" defaultValue="6.0" tooltip="Manual output gain &#8212; boosts level after compression."
              isPluginParameter="1" pluginParameterName="Boost" bgColour="0"
-             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"/>
+             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"
+             dragDirection="Vertical"/>
   <Component type="ScriptPanel" id="MeterPanel" x="122" y="116" width="15"
              height="210"/>
   <Component type="ScriptLabel" id="UTAUh" x="-2" y="27" fontName="Px437 Portfolio 6x8"
