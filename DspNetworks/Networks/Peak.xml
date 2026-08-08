@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="Peak" Version="0.0.0">
+  <Node FactoryPath="container.chain" ID="Peak" Bypassed="0" Name="Peak">
+    <Nodes>
+      <Node ID="peak_unscaled" FactoryPath="core.peak_unscaled" Bypassed="0"
+            Name="peak_unscaled">
+        <ComplexData>
+          <DisplayBuffers>
+            <DisplayBuffer Index="0"/>
+          </DisplayBuffers>
+        </ComplexData>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters/>
+  </Node>
+</Network>

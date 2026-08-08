@@ -1,0 +1,5 @@
+Binaries/
+*.exp
+*.obj
+.DS_Store
+Thumbs.db
