@@ -6,7 +6,7 @@
     <Nodes>
       <Node ID="gain" FactoryPath="core.gain" Bypassed="0" Name="gain">
         <Parameters>
-          <Parameter MinValue="0.0" MaxValue="28.0" StepSize="0.1000000014901161"
+          <Parameter MinValue="0.0" MaxValue="18.0" StepSize="0.1000000014901161"
                      SkewFactor="0.5" ID="Gain" Automated="1"/>
           <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
                      SkewFactor="0.3010300099849701" ID="Smoothing" TextToValueConverter="Time"
@@ -14,6 +14,27 @@
           <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
                      SkewFactor="5.422270774841309" ID="ResetValue" TextToValueConverter="Decibel"
                      Value="0.0"/>
+        </Parameters>
+      </Node>
+      <Node ID="comp" FactoryPath="dynamics.comp" Bypassed="0" Name="comp">
+        <ComplexData>
+          <DisplayBuffers>
+            <DisplayBuffer Index="-1"/>
+          </DisplayBuffers>
+        </ComplexData>
+        <Parameters>
+          <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                     SkewFactor="5.422270774841309" ID="Threshhold" TextToValueConverter="Decibel"
+                     Value="-100.0" DefaultValue="0.0"/>
+          <Parameter MinValue="0.0" MaxValue="250.0" StepSize="0.1000000014901161"
+                     SkewFactor="0.4306765496730804" ID="Attack" TextToValueConverter="Time"
+                     Value="50.0"/>
+          <Parameter MinValue="0.0" MaxValue="250.0" StepSize="0.1000000014901161"
+                     SkewFactor="0.4306765496730804" ID="Release" TextToValueConverter="Time"
+                     Value="250.0" DefaultValue="50.0"/>
+          <Parameter MinValue="1.000000014901161" MaxValue="2.0" StepSize="0" SkewFactor="1"
+                     ID="Ratio" DefaultValue="1.000000014901161" Automated="1"/>
+          <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Value="0.0"/>
         </Parameters>
       </Node>
       <Node ID="gain1" FactoryPath="core.gain" Bypassed="0" Name="gain1">
@@ -36,8 +57,15 @@
           <Connection NodeId="gain" ParameterId="Gain"/>
         </Connections>
       </Parameter>
-      <Parameter ID="Gain2" MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
-                 ModColour="0" ExternalModulation="Disabled" DefaultValue="" Value="6.000000089406966">
+      <Parameter ID="Clamp" MinValue="1.000000014901161" MaxValue="2.0" ModColour="0"
+                 ExternalModulation="Disabled" DefaultValue="" Value="1.100000023841858">
+        <Connections>
+          <Connection NodeId="comp" ParameterId="Ratio"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Boost" MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
+                 ModColour="0" ExternalModulation="Disabled" DefaultValue="" Value="6.000000089406966"
+                 TextToValueConverter="">
         <Connections>
           <Connection NodeId="gain1" ParameterId="Gain"/>
         </Connections>

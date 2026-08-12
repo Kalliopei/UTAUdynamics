@@ -87,7 +87,7 @@
     </Nodes>
     <Parameters>
       <Parameter ID="Floor" MinValue="-60.0" MaxValue="0.0" ModColour="0" ExternalModulation="Disabled"
-                 DefaultValue="" Value="-60.0" TextToValueConverter="">
+                 DefaultValue="" Value="-20.59999847412109" TextToValueConverter="">
         <Connections>
           <Connection NodeId="pma_unscaled" ParameterId="Value"/>
           <Connection NodeId="pma_unscaled1" ParameterId="Value"/>
