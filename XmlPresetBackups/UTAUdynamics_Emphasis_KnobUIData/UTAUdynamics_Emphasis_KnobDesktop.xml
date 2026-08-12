@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptImage" id="imgBackground" x="0" y="0" width="332"
+             height="550" fileName="{PROJECT_FOLDER}Background_332x550.png"/>
+  <Component type="ScriptButton" id="btnBypass" x="277" y="58" filmstripImage="{PROJECT_FOLDER}SmallButton_12x24_2.png"
+             width="12" height="12" pluginParameterName="Bypass" isPluginParameter="1"/>
+  <Component type="ScriptSlider" id="knbFloor" x="46" y="107" min="-60.0"
+             max="6.0" stepSize="0.1000000014901161" filmstripImage="{PROJECT_FOLDER}PurpleKnob_64x64_100.png"
+             numStrips="100.0" width="64" height="64" defaultValue="-60.0"
+             isPluginParameter="1" pluginParameterName="Floor" bgColour="0"
+             itemColour="0" itemColour2="0" textColour="0" isMetaParameter="1"
+             dragDirection="Vertical"/>
+  <Component type="ScriptSlider" id="knbSlack" x="46" y="198" max="0.0" stepSize="0.1000000014901161"
+             filmstripImage="{PROJECT_FOLDER}PurpleKnob_64x64_100.png" numStrips="100.0"
+             width="64" height="64" min="-20.0" defaultValue="-9.0" isPluginParameter="1"
+             pluginParameterName="Slack" bgColour="0" itemColour="0" textColour="0"
+             itemColour2="0" isMetaParameter="1" dragDirection="Vertical"/>
+  <Component type="ScriptSlider" id="knbFade" x="46" y="283" filmstripImage="{PROJECT_FOLDER}PurpleKnob_64x64_100.png"
+             numStrips="100.0" width="64" height="64" defaultValue="0.800000011920929"
+             isPluginParameter="1" pluginParameterName="Fade" bgColour="0"
+             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"
+             dragDirection="Vertical"/>
+  <Component type="ScriptSlider" id="knbLowCut" x="46" y="370" min="20.0"
+             max="500.0" stepSize="1.0" filmstripImage="{PROJECT_FOLDER}PurpleKnob_64x64_100.png"
+             numStrips="100.0" width="64" height="64" defaultValue="100.0"
+             pluginParameterName="Low Cut" isPluginParameter="1" bgColour="0"
+             itemColour="0" textColour="0" itemColour2="0" isMetaParameter="1"
+             dragDirection="Vertical"/>
+  <Component type="ScriptSlider" id="knbAmount" x="191" y="107" filmstripImage="{PROJECT_FOLDER}PinkKnob_64x64_100.png"
+             numStrips="100.0" width="64" height="64" defaultValue="1.0" isPluginParameter="1"
+             pluginParameterName="Amount" bgColour="0" itemColour="0" textColour="0"
+             itemColour2="0" isMetaParameter="1" dragDirection="Vertical"/>
+  <Component type="ScriptSlider" id="knbColor" x="191" y="198" filmstripImage="{PROJECT_FOLDER}PurpleKnob_64x64_100.png"
+             numStrips="100.0" width="64" height="64" isPluginParameter="1"
+             pluginParameterName="Color" bgColour="0" itemColour="0" textColour="0"
+             itemColour2="0" isMetaParameter="1" dragDirection="Vertical"/>
+  <Component type="ScriptSlider" id="knbClamp" x="191" y="283" min="1.0" max="2.0"
+             filmstripImage="{PROJECT_FOLDER}PurpleKnob_64x64_100.png" numStrips="100.0"
+             width="64" height="64" defaultValue="1.100000023841858" isPluginParameter="1"
+             pluginParameterName="Clamp" bgColour="0" itemColour="0" textColour="0"
+             itemColour2="0" isMetaParameter="1" dragDirection="Vertical"/>
+  <Component type="ScriptSlider" id="knbBoost" x="191" y="370" max="24.0"
+             stepSize="0.1000000014901161" filmstripImage="{PROJECT_FOLDER}PurpleKnob_64x64_100.png"
+             numStrips="100.0" width="64" height="64" defaultValue="6.0" isPluginParameter="1"
+             pluginParameterName="Boost" bgColour="0" itemColour="0" textColour="0"
+             itemColour2="0" isMetaParameter="1" dragDirection="Vertical"/>
+  <Component type="ScriptLabel" id="UTAUh" x="-2" y="27" fontName="Px437 Portfolio 6x8"
+             fontSize="24.0" fontStyle="Regular" alignment="centredBottom"
+             width="128" height="28" text="UTAU"/>
+  <Component type="ScriptLabel" id="UTAU" x="-3" y="26" fontName="Px437 Portfolio 6x8"
+             fontSize="24.0" fontStyle="Regular" alignment="centredBottom"
+             textColour="4282593617" width="128" height="28"/>
+  <Component type="ScriptLabel" id="dynamicsh" x="94" y="31" fontName="Px437 Portfolio 6x8"
+             fontSize="24.0" fontStyle="Regular" alignment="left" width="155"
+             height="24" text="dynamics"/>
+  <Component type="ScriptLabel" id="dynamics" x="93" y="30" fontName="Px437 Portfolio 6x8"
+             fontSize="24.0" fontStyle="Regular" alignment="left" textColour="4293197951"
+             width="155" height="24"/>
+  <Component type="ScriptPanel" id="pnlInput" x="130" y="111" width="15" height="333"/>
+  <Component type="ScriptPanel" id="pnlOutput" x="275" y="111" width="15"
+             height="333"/>
+</ContentProperties>

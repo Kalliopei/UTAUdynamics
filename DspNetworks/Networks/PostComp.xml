@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="PostComp" Version="0.0.0">
+  <Node FactoryPath="container.chain" ID="PostComp" Bypassed="0" Name="PostComp">
+    <Nodes/>
+    <Parameters/>
+  </Node>
+</Network>

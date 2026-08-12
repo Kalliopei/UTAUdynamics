@@ -6,7 +6,7 @@
       <Node ID="peak" FactoryPath="core.peak" Bypassed="0" Name="peak">
         <ComplexData>
           <DisplayBuffers>
-            <DisplayBuffer Index="-1"/>
+            <DisplayBuffer Index="0"/>
           </DisplayBuffers>
         </ComplexData>
         <Parameters/>

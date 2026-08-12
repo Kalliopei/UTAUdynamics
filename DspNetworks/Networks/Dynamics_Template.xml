@@ -8,14 +8,30 @@
             Name="oversample" ShowParameters="1">
         <Nodes>
           <Node ID="chain6" FactoryPath="container.chain" Bypassed="0" Name="chain6">
+            <Properties>
+              <Property ID="IsVertical" Value="0"/>
+            </Properties>
             <Nodes>
-              <Node ID="peak1" FactoryPath="core.peak" Bypassed="0" Name="PreComp">
+              <Node ID="envelope_follower" FactoryPath="dynamics.envelope_follower"
+                    Bypassed="0" Name="envelope_follower">
+                <ModulationTargets>
+                  <Connection NodeId="pma" ParameterId="Value"/>
+                </ModulationTargets>
                 <ComplexData>
                   <DisplayBuffers>
-                    <DisplayBuffer Index="0"/>
+                    <DisplayBuffer Index="-1"/>
                   </DisplayBuffers>
                 </ComplexData>
-                <Parameters/>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                             SkewFactor="0.2313782125711441" ID="Attack" TextToValueConverter="Time"
+                             Value="0.0" DefaultValue="20.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                             SkewFactor="0.2313782125711441" ID="Release" TextToValueConverter="Time"
+                             Value="60.10000089555979" DefaultValue="20.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="ProcessSignal"
+                             Value="0.0"/>
+                </Parameters>
               </Node>
               <Node ID="envelope_follower1" FactoryPath="dynamics.envelope_follower"
                     Bypassed="0" Name="envelope_follower1">
@@ -42,7 +58,7 @@
                   <Connection NodeId="comp8" ParameterId="Release"/>
                 </ModulationTargets>
                 <Parameters>
-                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
                   <Parameter MinValue="-1.0" MaxValue="1.0" ID="Multiply" DefaultValue="1.0"
                              Automated="1"/>
                   <Parameter MinValue="1.0" MaxValue="-1.0" ID="Add" DefaultValue="1.0" Automated="1"/>
@@ -553,8 +569,7 @@
               </Parameter>
             </Parameters>
           </Node>
-          <Node ID="chain" FactoryPath="container.chain" Bypassed="0" Name="chain"
-                ShowParameters="0">
+          <Node ID="chain" FactoryPath="container.chain" Bypassed="0" Name="chain">
             <Nodes>
               <Node ID="comp8" FactoryPath="dynamics.comp" Bypassed="0" Name="comp8">
                 <ComplexData>
@@ -576,7 +591,7 @@
                   <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Value="0.0"/>
                 </Parameters>
               </Node>
-              <Node ID="gain" FactoryPath="core.gain" Bypassed="1" Name="gain">
+              <Node ID="gain" FactoryPath="core.gain" Bypassed="0" Name="gain">
                 <Parameters>
                   <Parameter MinValue="0.0" MaxValue="28.0" StepSize="0.1000000014901161"
                              SkewFactor="0.5" ID="Gain" DefaultValue="0.0" Automated="1"/>
@@ -653,7 +668,7 @@
                   <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Value="0.0"/>
                 </Parameters>
               </Node>
-              <Node ID="gain6" FactoryPath="core.gain" Bypassed="1" Name="gain6">
+              <Node ID="gain6" FactoryPath="core.gain" Bypassed="0" Name="gain6">
                 <Parameters>
                   <Parameter MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
                              SkewFactor="1" ID="Gain" Automated="1"/>
@@ -678,8 +693,7 @@
       </Node>
     </Nodes>
     <Parameters>
-      <Parameter MinValue="0.0" MaxValue="1.0" ID="Amount" Value="1.0" DefaultValue="0.0"
-                 ExternalModulation="Disabled" ModColour="0">
+      <Parameter MinValue="0.0" MaxValue="1.0" ID="Amount" Value="1.0" DefaultValue="0.0">
         <Connections>
           <Connection NodeId="gain" ParameterId="Gain"/>
           <Connection NodeId="comp8" ParameterId="Ratio"/>
@@ -697,13 +711,13 @@
         </Connections>
       </Parameter>
       <Parameter MinValue="1.000000014901161" MaxValue="2.0" ID="Clamp" Value="1.000000014901161"
-                 ExternalModulation="Disabled" ModColour="0">
+                 DefaultValue="0.0">
         <Connections>
           <Connection NodeId="comp" ParameterId="Ratio"/>
         </Connections>
       </Parameter>
-      <Parameter MinValue="0.0" MaxValue="24.0" StepSize="0" ID="Boost" Value="0.0"
-                 ExternalModulation="Disabled" ModColour="0">
+      <Parameter MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
+                 ID="Boost" Value="0.0">
         <Connections>
           <Connection NodeId="gain6" ParameterId="Gain"/>
         </Connections>

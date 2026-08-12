@@ -28,7 +28,7 @@
           <Connection NodeId="gate" ParameterId="Threshhold"/>
         </ModulationTargets>
         <Parameters>
-          <Parameter MinValue="-60.0" MaxValue="6.0" ID="Value" Automated="1"/>
+          <Parameter MinValue="-60.0" MaxValue="0.0" ID="Value" Automated="1"/>
           <Parameter MinValue="-1.0" MaxValue="1.02" ID="Multiply" Value="1.02" DefaultValue="1.0"/>
           <Parameter MinValue="-20.0" MaxValue="0.0" SkewFactor="1" ID="Add" DefaultValue="-1.0"
                      Inverted="1" Automated="1"/>
@@ -41,8 +41,8 @@
           </DisplayBuffers>
         </ComplexData>
         <Parameters>
-          <Parameter MinValue="-90.0" MaxValue="6.0" StepSize="0.1000000014901161"
-                     SkewFactor="1" ID="Threshhold" DefaultValue="6.0" Automated="1"/>
+          <Parameter MinValue="-90.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                     SkewFactor="1" ID="Threshhold" Automated="1"/>
           <Parameter MinValue="5.000000074505805" MaxValue="250.0" StepSize="0.1000000014901161"
                      SkewFactor="0.4306765496730804" ID="Attack" DefaultValue="250.0"
                      Automated="1"/>
@@ -78,7 +78,7 @@
           <Connection NodeId="gate1" ParameterId="Threshhold"/>
         </ModulationTargets>
         <Parameters>
-          <Parameter MinValue="-60.0" MaxValue="6.0" ID="Value" Automated="1"/>
+          <Parameter MinValue="-60.0" MaxValue="0.0" ID="Value" Automated="1"/>
           <Parameter MinValue="-1.0" MaxValue="1.0" ID="Multiply" Value="1.0"/>
           <Parameter MinValue="-1.0" MaxValue="1.0" SkewFactor="1" ID="Add" DefaultValue="-1.0"
                      Automated="1"/>
@@ -86,8 +86,8 @@
       </Node>
     </Nodes>
     <Parameters>
-      <Parameter ID="Floor" MinValue="-60.0" MaxValue="6.0" ModColour="0" ExternalModulation="Disabled"
-                 DefaultValue="" Value="-60.0" TextToValueConverter="">
+      <Parameter ID="Floor" MinValue="-60.0" MaxValue="0.0" ModColour="0" ExternalModulation="Disabled"
+                 DefaultValue="" Value="-35.90000152587891" TextToValueConverter="">
         <Connections>
           <Connection NodeId="pma_unscaled" ParameterId="Value"/>
           <Connection NodeId="pma_unscaled1" ParameterId="Value"/>
@@ -95,15 +95,15 @@
         </Connections>
       </Parameter>
       <Parameter ID="Slack" MinValue="0.0" MaxValue="-20.0" ModColour="0" ExternalModulation="Disabled"
-                 Value="-9.0" TextToValueConverter="" SkewFactor="1" DefaultValue="-20.0">
+                 Value="-20.0" TextToValueConverter="" SkewFactor="1">
         <Connections>
           <Connection NodeId="pma_unscaled1" ParameterId="Add"/>
           <Connection NodeId="minmax" ParameterId="Minimum"/>
         </Connections>
       </Parameter>
-      <Parameter ID="Speed" MinValue="0.0" MaxValue="1.0" StepSize="0.1000000014901161"
-                 SkewFactor="2.0" ModColour="0" ExternalModulation="Disabled"
-                 Value="0.0" DefaultValue="1.0">
+      <Parameter ID="Speed" MinValue="0.0" MaxValue="1.0" StepSize="0" SkewFactor="2.0"
+                 ModColour="0" ExternalModulation="Disabled" Value="0.800000011920929"
+                 DefaultValue="1.0">
         <Connections>
           <Connection NodeId="gate1" ParameterId="Release"/>
           <Connection NodeId="gate1" ParameterId="Attack"/>

@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Processor Type="SynthChain" ID="UTAUdynamics" Bypassed="0" Gain="1.0" Balance="0.0"
-           VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0" packageName=""
-           BuildVersion="650">
+<Processor Type="SynthChain" ID="UTAUdynamics_Emphasis_Knob" Bypassed="0"
+           Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
+           IconColour="0" packageName="" BuildVersion="650">
   <ChildProcessors>
     <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
       <ChildProcessors>
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptButton" id="Effects1BypassButton" value="0.0"/>
-            <Control type="ScriptButton" id="Effects2BypassButton" value="0.0"/>
-            <Control type="ScriptSlider" id="FloorKnob" value="-45.0"/>
-            <Control type="ScriptSlider" id="SlackKnob" value="-1.499999761581421"/>
-            <Control type="ScriptSlider" id="FadeKnob" value="0.0"/>
-            <Control type="ScriptSlider" id="LowCutKnob" value="50.0"/>
-            <Control type="ScriptSlider" id="AmountKnob" value="1.0"/>
-            <Control type="ScriptSlider" id="ColorKnob" value="0.0"/>
-            <Control type="ScriptSlider" id="ClampKnob" value="1.0"/>
-            <Control type="ScriptSlider" id="BoostKnob" value="6.0"/>
+            <Control type="ScriptButton" id="btnBypass" value="0.0"/>
+            <Control type="ScriptSlider" id="knbFloor" value="-60.0"/>
+            <Control type="ScriptSlider" id="knbSlack" value="-9.0"/>
+            <Control type="ScriptSlider" id="knbFade" value="0.800000011920929"/>
+            <Control type="ScriptSlider" id="knbLowCut" value="20.0"/>
+            <Control type="ScriptSlider" id="knbAmount" value="1.0"/>
+            <Control type="ScriptSlider" id="knbColor" value="0.0"/>
+            <Control type="ScriptSlider" id="knbClamp" value="1.0"/>
+            <Control type="ScriptSlider" id="knbBoost" value="0.0"/>
           </Content>
-          <UIData Source="UTAUdynamicsUIData"/>
+          <UIData Source="UTAUdynamics_Emphasis_KnobUIData"/>
         </Processor>
       </ChildProcessors>
     </Processor>
@@ -33,11 +32,11 @@
     <Processor Type="EffectChain" ID="FX" Bypassed="0">
       <ChildProcessors>
         <Processor Type="CurveEq" ID="HPF" Bypassed="0" NumFilters="1" Band0="0.0"
-                   Band1="50.0" Band2="1.0" Band3="1.0" Band4="1.0" FFTEnabled="0">
+                   Band1="20.0" Band2="1.0" Band3="1.0" Band4="1.0" FFTEnabled="0">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="ScriptFX" ID="InputMeter" Bypassed="0" NumDisplayBuffers="1">
+        <Processor Type="ScriptFX" ID="PeakIn" Bypassed="0" NumDisplayBuffers="1">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
           <Content/>
@@ -59,45 +58,23 @@
             <ContentProperties DeviceType="Desktop"/>
           </UIData>
         </Processor>
-        <Processor Type="ScriptFX" ID="PreComp" Bypassed="0">
-          <ChildProcessors/>
-          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
-          <Content/>
-          <UIData>
-            <ContentProperties DeviceType="Desktop"/>
-          </UIData>
-        </Processor>
-        <Processor Type="ScriptFX" ID="Dynamics" Bypassed="0" NumDisplayBuffers="2">
+        <Processor Type="ScriptFX" ID="Script FX" Bypassed="0" NumDisplayBuffers="1">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
           <Content/>
           <Networks>
-            <Network ID="Dynamics" AllowCompilation="1" Version="0.0.0"/>
+            <Network ID="DspNetwork" Version="0.0.0" ShowComments="0"/>
           </Networks>
           <UIData>
             <ContentProperties DeviceType="Desktop"/>
           </UIData>
         </Processor>
-        <Processor Type="ScriptFX" ID="PostComp" Bypassed="0">
+        <Processor Type="HardcodedMasterFX" ID="Dynamics" Bypassed="1" Network="DspNetwork"
+                   Amount="1.0" Ratio="1.0" Tight="0.0" Boost="0.0">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
-          <Content/>
-          <UIData>
-            <ContentProperties DeviceType="Desktop"/>
-          </UIData>
         </Processor>
-        <Processor Type="ScriptFX" ID="Makeup" Bypassed="0">
-          <ChildProcessors/>
-          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
-          <Content/>
-          <Networks>
-            <Network ID="MakeupBoost" Version="0.0.0"/>
-          </Networks>
-          <UIData>
-            <ContentProperties DeviceType="Desktop"/>
-          </UIData>
-        </Processor>
-        <Processor Type="ScriptFX" ID="OutputMeter" Bypassed="0" NumDisplayBuffers="1">
+        <Processor Type="ScriptFX" ID="PeakOut" Bypassed="0" NumDisplayBuffers="1">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
           <Content/>
@@ -108,13 +85,24 @@
             <ContentProperties DeviceType="Desktop"/>
           </UIData>
         </Processor>
+        <Processor Type="ScriptFX" ID="Script FX2" Bypassed="1">
+          <ChildProcessors/>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+          <Content/>
+          <Networks>
+            <Network ID="DspNetwork" Version="0.0.0" ShowComments="0" AllowCompilation="1"/>
+          </Networks>
+          <UIData>
+            <ContentProperties DeviceType="Desktop"/>
+          </UIData>
+        </Processor>
       </ChildProcessors>
     </Processor>
     <Processor Type="AudioLooper" ID="Audio Loop Player" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0"
-               SyncMode="1.0" PitchTracking="0.0" LoopEnabled="0.0" RootNote="64.0"
-               SampleStartMod="0.0" Reversed="0.0" FileName="C:\Users\imnot\Downloads\NT1 SIG - THE WORLD WE KNEW_RAW VOCAL.wav"
-               min="391480" max="7808446" loopStart="391480" loopEnd="7808446">
+               SyncMode="1.0" PitchTracking="0.0" LoopEnabled="1.0" RootNote="64.0"
+               SampleStartMod="0.0" Reversed="0.0" FileName="C:\Users\imnot\Downloads\gap modern.wav"
+               min="612826" max="7725993" loopStart="612826" loopEnd="7725993">
       <ChildProcessors>
         <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
           <ChildProcessors/>
