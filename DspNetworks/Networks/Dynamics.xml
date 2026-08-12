@@ -576,18 +576,6 @@
                   <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Value="0.0"/>
                 </Parameters>
               </Node>
-              <Node ID="gain" FactoryPath="core.gain" Bypassed="1" Name="gain">
-                <Parameters>
-                  <Parameter MinValue="0.0" MaxValue="28.0" StepSize="0.1000000014901161"
-                             SkewFactor="0.5" ID="Gain" DefaultValue="0.0" Automated="1"/>
-                  <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
-                             SkewFactor="0.3010300099849701" ID="Smoothing" TextToValueConverter="Time"
-                             Value="20.0"/>
-                  <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
-                             SkewFactor="5.422270774841309" ID="ResetValue" TextToValueConverter="Decibel"
-                             Value="0.0"/>
-                </Parameters>
-              </Node>
             </Nodes>
             <Parameters/>
           </Node>
@@ -653,18 +641,6 @@
                   <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Value="0.0"/>
                 </Parameters>
               </Node>
-              <Node ID="gain6" FactoryPath="core.gain" Bypassed="1" Name="gain6">
-                <Parameters>
-                  <Parameter MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
-                             SkewFactor="1" ID="Gain" Automated="1"/>
-                  <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
-                             SkewFactor="0.3010300099849701" ID="Smoothing" TextToValueConverter="Time"
-                             Value="20.0"/>
-                  <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
-                             SkewFactor="5.422270774841309" ID="ResetValue" TextToValueConverter="Decibel"
-                             Value="0.0"/>
-                </Parameters>
-              </Node>
             </Nodes>
             <Parameters/>
           </Node>
@@ -681,7 +657,6 @@
       <Parameter MinValue="0.0" MaxValue="1.0" ID="Amount" Value="1.0" DefaultValue="0.0"
                  ExternalModulation="Disabled" ModColour="0">
         <Connections>
-          <Connection NodeId="gain" ParameterId="Gain"/>
           <Connection NodeId="comp8" ParameterId="Ratio"/>
           <Connection NodeId="comp8" ParameterId="Threshhold"/>
           <Connection NodeId="pma" ParameterId="Multiply"/>
@@ -696,17 +671,15 @@
           <Connection NodeId="expr" ParameterId="Value"/>
         </Connections>
       </Parameter>
-      <Parameter MinValue="1.000000014901161" MaxValue="2.0" ID="Clamp" Value="1.000000014901161"
-                 ExternalModulation="Disabled" ModColour="0">
+      <Parameter MinValue="1.000000014901161" MaxValue="2.0" ID="Clamp" Value="1.100000023841858"
+                 ExternalModulation="Disabled" ModColour="0" DefaultValue="1.000000014901161">
         <Connections>
           <Connection NodeId="comp" ParameterId="Ratio"/>
         </Connections>
       </Parameter>
       <Parameter MinValue="0.0" MaxValue="24.0" StepSize="0" ID="Boost" Value="0.0"
                  ExternalModulation="Disabled" ModColour="0">
-        <Connections>
-          <Connection NodeId="gain6" ParameterId="Gain"/>
-        </Connections>
+        <Connections/>
       </Parameter>
     </Parameters>
   </Node>

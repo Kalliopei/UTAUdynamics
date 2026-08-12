@@ -31,13 +31,13 @@
     </Nodes>
     <Parameters>
       <Parameter ID="Gain1" MinValue="0.0" MaxValue="1.0" ModColour="0" ExternalModulation="Disabled"
-                 DefaultValue="" Value="0.0">
+                 DefaultValue="" Value="1.0">
         <Connections>
           <Connection NodeId="gain" ParameterId="Gain"/>
         </Connections>
       </Parameter>
       <Parameter ID="Gain2" MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
-                 ModColour="0" ExternalModulation="Disabled" DefaultValue="" Value="0.0">
+                 ModColour="0" ExternalModulation="Disabled" DefaultValue="" Value="6.000000089406966">
         <Connections>
           <Connection NodeId="gain1" ParameterId="Gain"/>
         </Connections>

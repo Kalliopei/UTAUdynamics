@@ -87,7 +87,7 @@
     </Nodes>
     <Parameters>
       <Parameter ID="Floor" MinValue="-60.0" MaxValue="0.0" ModColour="0" ExternalModulation="Disabled"
-                 DefaultValue="" Value="-35.90000152587891" TextToValueConverter="">
+                 DefaultValue="" Value="-60.0" TextToValueConverter="">
         <Connections>
           <Connection NodeId="pma_unscaled" ParameterId="Value"/>
           <Connection NodeId="pma_unscaled1" ParameterId="Value"/>
@@ -95,7 +95,7 @@
         </Connections>
       </Parameter>
       <Parameter ID="Slack" MinValue="0.0" MaxValue="-20.0" ModColour="0" ExternalModulation="Disabled"
-                 Value="-20.0" TextToValueConverter="" SkewFactor="1">
+                 Value="-9.0" TextToValueConverter="" SkewFactor="1" DefaultValue="-20.0">
         <Connections>
           <Connection NodeId="pma_unscaled1" ParameterId="Add"/>
           <Connection NodeId="minmax" ParameterId="Minimum"/>

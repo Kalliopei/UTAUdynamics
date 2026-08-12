@@ -2,16 +2,7 @@
 
 <Network ID="PeakOut" Version="0.0.0">
   <Node FactoryPath="container.chain" ID="PeakOut" Bypassed="0" Name="PeakOut">
-    <Nodes>
-      <Node ID="peak" FactoryPath="core.peak" Bypassed="0" Name="peak">
-        <ComplexData>
-          <DisplayBuffers>
-            <DisplayBuffer Index="0"/>
-          </DisplayBuffers>
-        </ComplexData>
-        <Parameters/>
-      </Node>
-    </Nodes>
+    <Nodes/>
     <Parameters/>
   </Node>
 </Network>
