@@ -1,5 +1,5 @@
 # UTAUdynamics
-UTAUdynamics is an opensource audio plugin under the GPLv3 License, I've provided the necessary resources to rebuild the plugin yourself.
+UTAUdynamics is an opensource audio plugin under the GPLv3 License, I've provided the necessary resources as per GPLv3 requirements to be able to rebuild the plugin.
 #
 If you love my works and would like to support me <3
 
