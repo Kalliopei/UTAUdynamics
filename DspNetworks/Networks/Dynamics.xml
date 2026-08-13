@@ -70,11 +70,11 @@
                 <Nodes>
                   <Node ID="minmax" FactoryPath="control.minmax" Bypassed="0" Name="minmax">
                     <Parameters>
-                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
-                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Minimum" Value="0.0"/>
-                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Maximum" Value="1.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1" TextToValueConverter="NormalizedPercentage"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Minimum" Value="0.0" TextToValueConverter="NormalizedPercentage"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Maximum" Value="1.0" TextToValueConverter="NormalizedPercentage"/>
                       <Parameter MinValue="0.1000000014901161" MaxValue="10.0" SkewFactor="0.2890648245811462"
-                                 ID="Skew" Value="2.286591326632885" DefaultValue="1.0"/>
+                                 ID="Skew" Value="3.039836875052945" DefaultValue="1.0"/>
                       <Parameter MinValue="0.0" MaxValue="1.0" ID="Step" Value="0.0"/>
                       <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Polarity" Value="0.0"/>
                     </Parameters>
@@ -87,22 +87,22 @@
                     <Properties>
                       <Property ID="Mode" Value="Linear Ramp"/>
                     </Properties>
-                    <Parameters>
-                      <Parameter MinValue="0.01" MaxValue="0.99" ID="Value" DefaultValue="0.5492363374823062"
-                                 SkewFactor="1" Automated="1"/>
-                      <Parameter MinValue="0.1000000014901161" MaxValue="1000.0" StepSize="0.1000000014901161"
-                                 ID="SmoothingTime" TextToValueConverter="Time" Value="100.0"/>
-                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
-                    </Parameters>
                     <ModulationTargets>
                       <Connection NodeId="dummy1" ParameterId="Value"/>
                       <Connection NodeId="dummy3" ParameterId="Value"/>
                     </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                      <Parameter MinValue="0.1000000014901161" MaxValue="1000.0" StepSize="0.1000000014901161"
+                                 ID="SmoothingTime" TextToValueConverter="Time" Value="20.00000029802322"
+                                 DefaultValue="100.0000014901161"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
+                    </Parameters>
                   </Node>
                   <Node ID="dummy1" FactoryPath="math.mul" NodeColour="4294967295" Bypassed="0"
                         Name="dummy1">
                     <Parameters>
-                      <Parameter MinValue="1.0" MaxValue="0.0" SkewFactor="1" ID="Value" Automated="1"/>
+                      <Parameter MinValue="1.0" MaxValue="0.0" SkewFactor="0.6" ID="Value" Automated="1"/>
                     </Parameters>
                   </Node>
                 </Nodes>
@@ -114,7 +114,7 @@
                     <Nodes>
                       <Node ID="chain2" FactoryPath="container.chain" Bypassed="0" Name="Band1">
                         <Nodes>
-                          <Node ID="biquad4" FactoryPath="filters.biquad" Bypassed="0" Name="biquad2">
+                          <Node ID="one_pole" FactoryPath="filters.one_pole" Bypassed="0" Name="one_pole">
                             <ComplexData>
                               <Filters>
                                 <Filter Index="-1"/>
@@ -122,15 +122,15 @@
                             </ComplexData>
                             <Parameters>
                               <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
-                                         ID="Frequency" TextToValueConverter="Frequency" Value="1000.0"/>
+                                         ID="Frequency" TextToValueConverter="Frequency" Value="100.0"
+                                         DefaultValue="1000.0"/>
                               <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
                                          ID="Q" Value="1.0"/>
                               <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" TextToValueConverter="Decibel"
                                          Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
                                          ID="Smoothing" Value="0.009999999776482582"/>
-                              <Parameter MinValue="0.0" MaxValue="5.0" StepSize="1.0" ID="Mode" Value="5.0"
-                                         DefaultValue="0.0"/>
+                              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Mode" Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
                             </Parameters>
                           </Node>
@@ -157,10 +157,10 @@
                           <Node ID="gain2" FactoryPath="core.gain" Bypassed="0" Name="gain1">
                             <Parameters>
                               <Parameter MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
-                                         SkewFactor="1" ID="Gain" Value="2.300000034272671" DefaultValue="0.0"/>
+                                         SkewFactor="1" ID="Gain" Value="1.700000025331974" DefaultValue="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
                                          SkewFactor="0.3010300099849701" ID="Smoothing" TextToValueConverter="Time"
-                                         Value="20.0"/>
+                                         Value="20.00000029802322" DefaultValue="20.0"/>
                               <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
                                          SkewFactor="5.422270774841309" ID="ResetValue" TextToValueConverter="Decibel"
                                          Value="0.0"/>
@@ -171,7 +171,7 @@
                       </Node>
                       <Node ID="chain1" FactoryPath="container.chain" Bypassed="0" Name="Band2">
                         <Nodes>
-                          <Node ID="biquad2" FactoryPath="filters.biquad" Bypassed="0" Name="biquad2">
+                          <Node ID="one_pole1" FactoryPath="filters.one_pole" Bypassed="0" Name="one_pole1">
                             <ComplexData>
                               <Filters>
                                 <Filter Index="-1"/>
@@ -179,7 +179,7 @@
                             </ComplexData>
                             <Parameters>
                               <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
-                                         ID="Frequency" TextToValueConverter="Frequency" Value="2494.312821213077"
+                                         ID="Frequency" TextToValueConverter="Frequency" Value="1297.083929644014"
                                          DefaultValue="1000.0"/>
                               <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
                                          ID="Q" Value="1.0"/>
@@ -187,12 +187,11 @@
                                          Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
                                          ID="Smoothing" Value="0.009999999776482582"/>
-                              <Parameter MinValue="0.0" MaxValue="5.0" StepSize="1.0" ID="Mode" Value="5.0"
-                                         DefaultValue="0.0"/>
+                              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Mode" Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
                             </Parameters>
                           </Node>
-                          <Node ID="biquad3" FactoryPath="filters.biquad" Bypassed="0" Name="biquad3">
+                          <Node ID="one_pole2" FactoryPath="filters.one_pole" Bypassed="0" Name="one_pole2">
                             <ComplexData>
                               <Filters>
                                 <Filter Index="-1"/>
@@ -200,7 +199,7 @@
                             </ComplexData>
                             <Parameters>
                               <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
-                                         ID="Frequency" TextToValueConverter="Frequency" Value="348.2492976166567"
+                                         ID="Frequency" TextToValueConverter="Frequency" Value="100.0"
                                          DefaultValue="1000.0"/>
                               <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
                                          ID="Q" Value="1.0"/>
@@ -208,7 +207,7 @@
                                          Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
                                          ID="Smoothing" Value="0.009999999776482582"/>
-                              <Parameter MinValue="0.0" MaxValue="5.0" StepSize="1.0" ID="Mode" Value="1.0"
+                              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Mode" Value="1.0"
                                          DefaultValue="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
                             </Parameters>
@@ -228,7 +227,7 @@
                               <Parameter MinValue="250.0" MaxValue="1000.0" StepSize="0.1000000014901161"
                                          SkewFactor="0.4306765496730804" ID="Release" Value="250.0"/>
                               <Parameter MinValue="1.000000014901161" MaxValue="32.0" StepSize="0.1000000014901161"
-                                         SkewFactor="0.2968033850193024" ID="Ratio" Value="1.30000001937151"
+                                         SkewFactor="0.2968033850193024" ID="Ratio" Value="1.200000017881393"
                                          DefaultValue="1.000000014901161"/>
                               <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Value="0.0"/>
                             </Parameters>
@@ -236,7 +235,7 @@
                           <Node ID="gain1" FactoryPath="core.gain" Bypassed="0" Name="gain1">
                             <Parameters>
                               <Parameter MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
-                                         SkewFactor="1" ID="Gain" Value="2.800000041723251" DefaultValue="0.0"/>
+                                         SkewFactor="1" ID="Gain" Value="4.500000067055224" DefaultValue="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
                                          SkewFactor="0.3010300099849701" ID="Smoothing" TextToValueConverter="Time"
                                          Value="20.0"/>
@@ -250,7 +249,7 @@
                       </Node>
                       <Node ID="chain3" FactoryPath="container.chain" Bypassed="0" Name="Band3">
                         <Nodes>
-                          <Node ID="biquad6" FactoryPath="filters.biquad" Bypassed="0" Name="biquad2">
+                          <Node ID="one_pole6" FactoryPath="filters.one_pole" Bypassed="0" Name="one_pole6">
                             <ComplexData>
                               <Filters>
                                 <Filter Index="-1"/>
@@ -258,7 +257,7 @@
                             </ComplexData>
                             <Parameters>
                               <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
-                                         ID="Frequency" TextToValueConverter="Frequency" Value="4965.88358092355"
+                                         ID="Frequency" TextToValueConverter="Frequency" Value="3434.728876080241"
                                          DefaultValue="1000.0"/>
                               <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
                                          ID="Q" Value="1.0"/>
@@ -266,12 +265,11 @@
                                          Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
                                          ID="Smoothing" Value="0.009999999776482582"/>
-                              <Parameter MinValue="0.0" MaxValue="5.0" StepSize="1.0" ID="Mode" Value="5.0"
-                                         DefaultValue="0.0"/>
+                              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Mode" Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
                             </Parameters>
                           </Node>
-                          <Node ID="biquad7" FactoryPath="filters.biquad" Bypassed="0" Name="biquad3">
+                          <Node ID="one_pole7" FactoryPath="filters.one_pole" Bypassed="0" Name="one_pole7">
                             <ComplexData>
                               <Filters>
                                 <Filter Index="-1"/>
@@ -279,14 +277,15 @@
                             </ComplexData>
                             <Parameters>
                               <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
-                                         ID="Frequency" TextToValueConverter="Frequency" Value="1000.0"/>
+                                         ID="Frequency" TextToValueConverter="Frequency" Value="1711.2120957887"
+                                         DefaultValue="1000.0"/>
                               <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
                                          ID="Q" Value="1.0"/>
                               <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" TextToValueConverter="Decibel"
                                          Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
                                          ID="Smoothing" Value="0.009999999776482582"/>
-                              <Parameter MinValue="0.0" MaxValue="5.0" StepSize="1.0" ID="Mode" Value="1.0"
+                              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Mode" Value="1.0"
                                          DefaultValue="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
                             </Parameters>
@@ -306,7 +305,7 @@
                               <Parameter MinValue="250.0" MaxValue="1000.0" StepSize="0.1000000014901161"
                                          SkewFactor="0.4306765496730804" ID="Release" Value="250.0"/>
                               <Parameter MinValue="1.000000014901161" MaxValue="32.0" StepSize="0.1000000014901161"
-                                         SkewFactor="0.2968033850193024" ID="Ratio" Value="1.200000017881393"
+                                         SkewFactor="0.2968033850193024" ID="Ratio" Value="1.400000020861625"
                                          DefaultValue="1.000000014901161"/>
                               <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Value="0.0"/>
                             </Parameters>
@@ -314,7 +313,7 @@
                           <Node ID="gain3" FactoryPath="core.gain" Bypassed="0" Name="gain1">
                             <Parameters>
                               <Parameter MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
-                                         SkewFactor="1" ID="Gain" Value="3.500000052154064" DefaultValue="0.0"/>
+                                         SkewFactor="1" ID="Gain" Value="6.300000093877315" DefaultValue="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
                                          SkewFactor="0.3010300099849701" ID="Smoothing" TextToValueConverter="Time"
                                          Value="20.0"/>
@@ -328,7 +327,7 @@
                       </Node>
                       <Node ID="chain4" FactoryPath="container.chain" Bypassed="0" Name="Band4">
                         <Nodes>
-                          <Node ID="biquad8" FactoryPath="filters.biquad" Bypassed="0" Name="biquad2">
+                          <Node ID="one_pole4" FactoryPath="filters.one_pole" Bypassed="0" Name="one_pole4">
                             <ComplexData>
                               <Filters>
                                 <Filter Index="-1"/>
@@ -336,7 +335,7 @@
                             </ComplexData>
                             <Parameters>
                               <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
-                                         ID="Frequency" TextToValueConverter="Frequency" Value="8692.595864931711"
+                                         ID="Frequency" TextToValueConverter="Frequency" Value="10000.0"
                                          DefaultValue="1000.0"/>
                               <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
                                          ID="Q" Value="1.0"/>
@@ -344,12 +343,11 @@
                                          Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
                                          ID="Smoothing" Value="0.009999999776482582"/>
-                              <Parameter MinValue="0.0" MaxValue="5.0" StepSize="1.0" ID="Mode" Value="5.0"
-                                         DefaultValue="0.0"/>
+                              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Mode" Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
                             </Parameters>
                           </Node>
-                          <Node ID="biquad9" FactoryPath="filters.biquad" Bypassed="0" Name="biquad3">
+                          <Node ID="one_pole3" FactoryPath="filters.one_pole" Bypassed="0" Name="one_pole3">
                             <ComplexData>
                               <Filters>
                                 <Filter Index="-1"/>
@@ -357,7 +355,7 @@
                             </ComplexData>
                             <Parameters>
                               <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
-                                         ID="Frequency" TextToValueConverter="Frequency" Value="2106.733667986531"
+                                         ID="Frequency" TextToValueConverter="Frequency" Value="5000.0"
                                          DefaultValue="1000.0"/>
                               <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
                                          ID="Q" Value="1.0"/>
@@ -365,7 +363,7 @@
                                          Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
                                          ID="Smoothing" Value="0.009999999776482582"/>
-                              <Parameter MinValue="0.0" MaxValue="5.0" StepSize="1.0" ID="Mode" Value="1.0"
+                              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Mode" Value="1.0"
                                          DefaultValue="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
                             </Parameters>
@@ -385,7 +383,7 @@
                               <Parameter MinValue="250.0" MaxValue="1000.0" StepSize="0.1000000014901161"
                                          SkewFactor="0.4306765496730804" ID="Release" Value="250.0"/>
                               <Parameter MinValue="1.000000014901161" MaxValue="32.0" StepSize="0.1000000014901161"
-                                         SkewFactor="0.2968033850193024" ID="Ratio" Value="1.100000016391277"
+                                         SkewFactor="0.2968033850193024" ID="Ratio" Value="2.800000041723251"
                                          DefaultValue="1.000000014901161"/>
                               <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Value="0.0"/>
                             </Parameters>
@@ -393,7 +391,7 @@
                           <Node ID="gain4" FactoryPath="core.gain" Bypassed="0" Name="gain1">
                             <Parameters>
                               <Parameter MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
-                                         SkewFactor="1" ID="Gain" Value="4.800000071525574" DefaultValue="0.0"/>
+                                         SkewFactor="1" ID="Gain" Value="2.30000003427267" DefaultValue="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
                                          SkewFactor="0.3010300099849701" ID="Smoothing" TextToValueConverter="Time"
                                          Value="20.0"/>
@@ -407,7 +405,7 @@
                       </Node>
                       <Node ID="chain5" FactoryPath="container.chain" Bypassed="0" Name="Band5">
                         <Nodes>
-                          <Node ID="biquad10" FactoryPath="filters.biquad" Bypassed="0" Name="biquad2">
+                          <Node ID="one_pole5" FactoryPath="filters.one_pole" Bypassed="0" Name="one_pole5">
                             <ComplexData>
                               <Filters>
                                 <Filter Index="-1"/>
@@ -415,7 +413,7 @@
                             </ComplexData>
                             <Parameters>
                               <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
-                                         ID="Frequency" TextToValueConverter="Frequency" Value="20000.0"
+                                         ID="Frequency" TextToValueConverter="Frequency" Value="10000.0"
                                          DefaultValue="1000.0"/>
                               <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
                                          ID="Q" Value="1.0"/>
@@ -423,28 +421,7 @@
                                          Value="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
                                          ID="Smoothing" Value="0.009999999776482582"/>
-                              <Parameter MinValue="0.0" MaxValue="5.0" StepSize="1.0" ID="Mode" Value="5.0"
-                                         DefaultValue="0.0"/>
-                              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
-                            </Parameters>
-                          </Node>
-                          <Node ID="biquad11" FactoryPath="filters.biquad" Bypassed="0" Name="biquad3">
-                            <ComplexData>
-                              <Filters>
-                                <Filter Index="-1"/>
-                              </Filters>
-                            </ComplexData>
-                            <Parameters>
-                              <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
-                                         ID="Frequency" TextToValueConverter="Frequency" Value="4881.907387517789"
-                                         DefaultValue="1000.0"/>
-                              <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
-                                         ID="Q" Value="1.0"/>
-                              <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" TextToValueConverter="Decibel"
-                                         Value="0.0"/>
-                              <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
-                                         ID="Smoothing" Value="0.009999999776482582"/>
-                              <Parameter MinValue="0.0" MaxValue="5.0" StepSize="1.0" ID="Mode" Value="1.0"
+                              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Mode" Value="1.0"
                                          DefaultValue="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
                             </Parameters>
@@ -464,7 +441,7 @@
                               <Parameter MinValue="250.0" MaxValue="1000.0" StepSize="0.1000000014901161"
                                          SkewFactor="0.4306765496730804" ID="Release" Value="250.0"/>
                               <Parameter MinValue="1.0" MaxValue="32.0" StepSize="0.1000000014901161"
-                                         SkewFactor="0.2968033850193024" ID="Ratio" Value="2.000000014901161"
+                                         SkewFactor="0.2968033850193024" ID="Ratio" Value="1.300000004470348"
                                          DefaultValue="1.0"/>
                               <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Value="0.0"/>
                             </Parameters>
@@ -472,65 +449,7 @@
                           <Node ID="gain5" FactoryPath="core.gain" Bypassed="0" Name="gain1">
                             <Parameters>
                               <Parameter MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
-                                         SkewFactor="1" ID="Gain" Value="2.000000029802322" DefaultValue="0.0"/>
-                              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
-                                         SkewFactor="0.3010300099849701" ID="Smoothing" TextToValueConverter="Time"
-                                         Value="20.0"/>
-                              <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
-                                         SkewFactor="5.422270774841309" ID="ResetValue" TextToValueConverter="Decibel"
-                                         Value="0.0"/>
-                            </Parameters>
-                          </Node>
-                        </Nodes>
-                        <Parameters/>
-                      </Node>
-                      <Node ID="chain7" FactoryPath="container.chain" Bypassed="0" Name="Band6">
-                        <Nodes>
-                          <Node ID="biquad14" FactoryPath="filters.biquad" Bypassed="0" Name="biquad2">
-                            <ComplexData>
-                              <Filters>
-                                <Filter Index="-1"/>
-                              </Filters>
-                            </ComplexData>
-                            <Parameters>
-                              <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
-                                         ID="Frequency" TextToValueConverter="Frequency" Value="20000.0"
-                                         DefaultValue="1000.0"/>
-                              <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
-                                         ID="Q" Value="1.0"/>
-                              <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" TextToValueConverter="Decibel"
-                                         Value="0.0"/>
-                              <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
-                                         ID="Smoothing" Value="0.009999999776482582"/>
-                              <Parameter MinValue="0.0" MaxValue="5.0" StepSize="1.0" ID="Mode" Value="1.0"
-                                         DefaultValue="0.0"/>
-                              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
-                            </Parameters>
-                          </Node>
-                          <Node ID="comp7" FactoryPath="dynamics.comp" Bypassed="0" Name="comp1">
-                            <ComplexData>
-                              <DisplayBuffers>
-                                <DisplayBuffer Index="-1"/>
-                              </DisplayBuffers>
-                            </ComplexData>
-                            <Parameters>
-                              <Parameter MinValue="-60.0" MaxValue="0.0" StepSize="0.1000000014901161"
-                                         SkewFactor="1" ID="Threshhold" Value="-60.0" DefaultValue="0.0"/>
-                              <Parameter MinValue="1.000000014901161" MaxValue="250.0" StepSize="0.1000000014901161"
-                                         SkewFactor="0.4306765496730804" ID="Attack" TextToValueConverter="Time"
-                                         Value="1.000000014901161" DefaultValue="50.00000074505805"/>
-                              <Parameter MinValue="250.0" MaxValue="1000.0" StepSize="0.1000000014901161"
-                                         SkewFactor="0.4306765496730804" ID="Release" Value="250.0"/>
-                              <Parameter MinValue="1.0" MaxValue="32.0" StepSize="0.1000000014901161"
-                                         SkewFactor="0.2968033850193024" ID="Ratio" Value="1.600000008940697"
-                                         DefaultValue="1.0"/>
-                              <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Value="0.0"/>
-                            </Parameters>
-                          </Node>
-                          <Node ID="gain7" FactoryPath="core.gain" Bypassed="0" Name="gain1">
-                            <Parameters>
-                              <Parameter MinValue="0.0" MaxValue="24.0" StepSize="0.1000000014901161"
-                                         SkewFactor="1" ID="Gain" Value="4.500000067055225" DefaultValue="0.0"/>
+                                         SkewFactor="1" ID="Gain" Value="3.100000046193599" DefaultValue="0.0"/>
                               <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
                                          SkewFactor="0.3010300099849701" ID="Smoothing" TextToValueConverter="Time"
                                          Value="20.0"/>
@@ -548,7 +467,7 @@
                   <Node ID="dummy3" FactoryPath="math.mul" NodeColour="4294967295" Bypassed="0"
                         Name="dummy3">
                     <Parameters>
-                      <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="1" ID="Value" DefaultValue="1.0"
+                      <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="3" ID="Value" DefaultValue="1.0"
                                  Automated="1"/>
                     </Parameters>
                   </Node>
@@ -557,7 +476,7 @@
               </Node>
             </Nodes>
             <Parameters>
-              <Parameter ID="Blend" MinValue="0.0" MaxValue="1.0" ModColour="0" ExternalModulation="Disabled"
+              <Parameter ID="Parameter" MinValue="0.0" MaxValue="1.0" ModColour="0" ExternalModulation="Disabled"
                          Automated="1">
                 <Connections>
                   <Connection NodeId="minmax" ParameterId="Value"/>
@@ -583,7 +502,7 @@
                   <Parameter MinValue="250.0000037252903" MaxValue="3000.0" StepSize="0.1000000014901161"
                              SkewFactor="1" ID="Release" DefaultValue="250.0000037252903"
                              Automated="1"/>
-                  <Parameter MinValue="1.000000014901161" MaxValue="6.0" StepSize="0.1000000014901161"
+                  <Parameter MinValue="1.000000014901161" MaxValue="4.0" StepSize="0.1000000014901161"
                              SkewFactor="0.2" ID="Ratio" DefaultValue="2.400000035762786"
                              Automated="1"/>
                   <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Value="0.0"/>
@@ -751,20 +670,20 @@
       </Node>
     </Nodes>
     <Parameters>
-      <Parameter MinValue="0.0" MaxValue="1.0" ID="Amount" Value="1.0" DefaultValue="0.0"
-                 ExternalModulation="Disabled" ModColour="0">
+      <Parameter MinValue="0.0" MaxValue="1.0" ID="Amount" Value="1.0" ExternalModulation="Disabled"
+                 ModColour="0" DefaultValue="0.0">
         <Connections>
           <Connection NodeId="comp8" ParameterId="Ratio"/>
           <Connection NodeId="pma" ParameterId="Multiply"/>
         </Connections>
       </Parameter>
-      <Parameter MinValue="0.0" MaxValue="1.0" ID="Color" Value="0.0" ExternalModulation="Disabled"
-                 ModColour="0">
+      <Parameter MinValue="0.0" MaxValue="1.0" ID="Color" Value="0.4000000059604645"
+                 ExternalModulation="Disabled" ModColour="0" DefaultValue="0.0">
         <Connections>
           <Connection NodeId="gain8" ParameterId="Gain"/>
           <Connection NodeId="gain9" ParameterId="Gain"/>
           <Connection NodeId="gain12" ParameterId="Gain"/>
-          <Connection NodeId="split1" ParameterId="Blend"/>
+          <Connection NodeId="split1" ParameterId="Parameter"/>
         </Connections>
       </Parameter>
       <Parameter MinValue="1.000000014901161" MaxValue="2.0" ID="Clamp" Value="1.000000014901161"
